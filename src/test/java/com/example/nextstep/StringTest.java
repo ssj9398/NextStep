@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StringTest {
 
@@ -41,5 +42,20 @@ public class StringTest {
         System.out.println("substring = " + substring);
 
         assertThat(substring).isEqualTo("1,2");
+    }
+
+    @Test
+    @DisplayName("String의 charAt() 메소드를 활용해 특정 위치의 문자를 가져오기")
+    void charAt(){
+        String actual = "abc";
+
+        assertThat(actual.charAt(0)).isEqualTo('a');
+        assertThat(actual.charAt(1)).isEqualTo('b');
+        assertThat(actual.charAt(2)).isEqualTo('c');
+
+        assertThatThrownBy(() ->{
+            actual.charAt(4);
+        }).isInstanceOf(StringIndexOutOfBoundsException.class)
+                .hasMessageContaining("String index out of range: 4");
     }
 }

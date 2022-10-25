@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -78,8 +79,23 @@ class BookRepositoryTest {
         assertEquals(author, bookPs.getAuthor());
 
     }
-    //4. 책 수정
+    //4. 책 삭제
+    @Test
+    void 책삭제(){
+        //given
+        Long id = 1L;
 
-    //5. 책 삭제
+        //when
+        bookRepository.deleteById(id);
+
+        //then
+        Optional<Book> bookPs = bookRepository.findById(id);
+
+        assertFalse(!bookPs.isEmpty());
+        assertFalse(!bookRepository.findById(id).isEmpty());
+    }
+
+
+    //5. 책 수정
 
 }

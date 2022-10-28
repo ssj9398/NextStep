@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.jdbc.Sql;
 
 import java.util.List;
 import java.util.Optional;
@@ -65,6 +66,7 @@ class BookRepositoryTest {
     }
 
     //3. 책 한건보기
+    @Sql("classpath:db/tableInit.sql")
     @Test
     void 책한건보기() {
         //given
@@ -80,6 +82,7 @@ class BookRepositoryTest {
 
     }
     //4. 책 삭제
+    @Sql("classpath:db/tableInit.sql")
     @Test
     void 책삭제(){
         //given

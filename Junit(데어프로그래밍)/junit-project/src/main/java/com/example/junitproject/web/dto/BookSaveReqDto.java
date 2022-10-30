@@ -2,8 +2,10 @@ package com.example.junitproject.web.dto;
 
 import com.example.junitproject.domain.Book;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class BookSaveReqDto {
     private String title;
     private String author;

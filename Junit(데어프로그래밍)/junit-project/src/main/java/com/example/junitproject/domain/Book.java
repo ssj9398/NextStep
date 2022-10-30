@@ -1,5 +1,6 @@
 package com.example.junitproject.domain;
 
+import com.example.junitproject.web.dto.BookSaveReqDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,11 @@ public class Book {
     @Builder
     public Book(Long id, String title, String author) {
         this.id = id;
+        this.title = title;
+        this.author = author;
+    }
+
+    public void update(String title, String author) {
         this.title = title;
         this.author = author;
     }

@@ -17,6 +17,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -73,6 +74,24 @@ class BookServiceTest {
         assertThat(dtos.get(0).getAuthor()).isEqualTo("저자1");
         assertThat(dtos.get(1).getTitle()).isEqualTo("제목2");
         assertThat(dtos.get(1).getAuthor()).isEqualTo("저자2");
+    }
+
+    @Test
+    void 책한건보기(){
+        //given
+        Long id = 1L;
+        Book book = new Book(1L, "제목1","저자1");
+        Optional<Book>  optBook = Optional.of(book);
+
+        //stub
+        when(bookRepository.findById(id)).thenReturn(optBook);
+
+        //when
+        BookResponseDto bookResponseDto = bookService.책한건보기(id);
+
+        //then
+        assertThat(bookResponseDto.getTitle()).isEqualTo(book.getTitle());
+        assertThat(bookResponseDto.getAuthor()).isEqualTo(book.getAuthor());
     }
 
 }

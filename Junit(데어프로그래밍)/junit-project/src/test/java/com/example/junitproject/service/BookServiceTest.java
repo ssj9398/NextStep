@@ -80,10 +80,10 @@ class BookServiceTest {
     void 책한건보기(){
         //given
         Long id = 1L;
-        Book book = new Book(1L, "제목1","저자1");
-        Optional<Book>  optBook = Optional.of(book);
 
         //stub
+        Book book = new Book(1L, "제목1","저자1");
+        Optional<Book>  optBook = Optional.of(book);
         when(bookRepository.findById(id)).thenReturn(optBook);
 
         //when
@@ -92,6 +92,27 @@ class BookServiceTest {
         //then
         assertThat(bookResponseDto.getTitle()).isEqualTo(book.getTitle());
         assertThat(bookResponseDto.getAuthor()).isEqualTo(book.getAuthor());
+    }
+
+    @Test
+    void 책수정하기(){
+        //given
+        Long id = 1L;
+        BookSaveReqDto dto = new BookSaveReqDto();
+        dto.setTitle("제목2");
+        dto.setAuthor("저자2");
+
+        //stub
+        Book book = new Book(1L, "제목1","저자1");
+        Optional<Book>  optBook = Optional.of(book);
+        when(bookRepository.findById(id)).thenReturn(optBook);
+
+        //when
+        BookResponseDto bookResponseDto = bookService.책수정하기(id, dto);
+
+        //then
+        assertThat(bookResponseDto.getAuthor()).isEqualTo(dto.getAuthor());
+        assertThat(bookResponseDto.getTitle()).isEqualTo(dto.getTitle());
     }
 
 }

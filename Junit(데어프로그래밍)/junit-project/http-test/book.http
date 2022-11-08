@@ -1,0 +1,8 @@
+### 책등록
+POST http://localhost:8085/api/v1/book
+Content-Type: application/json
+
+{
+  "title": "제목1",
+  "author": "저자1"
+}

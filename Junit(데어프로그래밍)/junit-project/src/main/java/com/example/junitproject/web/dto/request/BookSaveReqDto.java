@@ -1,4 +1,4 @@
-package com.example.junitproject.web.dto;
+package com.example.junitproject.web.dto.request;
 
 import com.example.junitproject.domain.Book;
 import lombok.Getter;

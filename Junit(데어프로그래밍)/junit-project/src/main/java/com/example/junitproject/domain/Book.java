@@ -1,7 +1,6 @@
 package com.example.junitproject.domain;
 
-import com.example.junitproject.web.dto.BookResponseDto;
-import com.example.junitproject.web.dto.BookSaveReqDto;
+import com.example.junitproject.web.dto.response.BookResponseDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

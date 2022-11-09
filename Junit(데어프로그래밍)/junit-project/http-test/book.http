@@ -4,5 +4,8 @@ Content-Type: application/json
 
 {
   "title": "제목1",
-  "author": "저자1"
+  "author": "12314"
 }
+
+###책목록보기
+GET http://localhost:8085/api/v1/book

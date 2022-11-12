@@ -9,3 +9,6 @@ Content-Type: application/json
 
 ###책목록보기
 GET http://localhost:8085/api/v1/book
+
+###책 한건보기
+GET http://localhost:8085/api/v1/book/1

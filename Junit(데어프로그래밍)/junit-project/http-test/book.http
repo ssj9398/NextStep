@@ -12,3 +12,6 @@ GET http://localhost:8085/api/v1/book
 
 ###책 한건보기
 GET http://localhost:8085/api/v1/book/1
+
+###책 삭제
+DELETE http://localhost:8085/api/v1/book/1

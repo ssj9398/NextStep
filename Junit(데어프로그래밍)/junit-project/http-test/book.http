@@ -3,7 +3,16 @@ POST http://localhost:8085/api/v1/book
 Content-Type: application/json
 
 {
-  "title": "제목1",
+  "title": "제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1",
+  "author": "12314"
+}
+
+### 책등록2
+POST http://localhost:8085/api/v2/book
+Content-Type: application/json
+
+{
+  "title": "제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1제목1",
   "author": "12314"
 }
 

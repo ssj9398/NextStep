@@ -40,6 +40,13 @@ public class BookApiController {
                 HttpStatus.CREATED);
     }
 
+    @PostMapping("/api/v2/book")
+    public ResponseEntity<?> saveBookV2(@RequestBody BookSaveReqDto bookSaveReqDto) {
+        BookResponseDto responseDto = bookService.책등록하기(bookSaveReqDto);
+        return new ResponseEntity<>(CMRespDto.builder().code(1).msg("글 저장 성공").body(responseDto).build(),
+                HttpStatus.CREATED);
+    }
+
     //2. 책목록보기
     @GetMapping("/api/v1/book")
     public ResponseEntity<?> getBookList() {

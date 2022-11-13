@@ -19,8 +19,6 @@ import org.springframework.http.*;
 // 컨트롤러만 테스트하는게 아님
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class BookApiControllerTest {
-    @Autowired
-    private BookService bookService;
 
     @Autowired
 

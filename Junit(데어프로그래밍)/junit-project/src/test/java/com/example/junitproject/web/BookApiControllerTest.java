@@ -54,6 +54,25 @@ class BookApiControllerTest {
 
     @Sql("classpath:db/tableInit.sql")
     @Test
+    public void deleteBook_test(){
+        //given
+        Long id = 1L;
+
+        //when
+        HttpEntity<String> request = new HttpEntity<>(null, headers);
+
+        ResponseEntity<String> response = rt.exchange("/api/v1/book/" + id, HttpMethod.DELETE, request, String.class);
+
+        //then
+        DocumentContext dc = JsonPath.parse(response.getBody());
+        Integer code = dc.read("$.code");
+
+        assertThat(response.getStatusCodeValue()).isEqualTo(200);
+        assertThat(code).isEqualTo(1);
+    }
+
+    @Sql("classpath:db/tableInit.sql")
+    @Test
     public void getBookOne(){
         //given
         Long id = 1L;
